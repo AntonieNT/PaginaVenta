@@ -1,0 +1,16 @@
+﻿# Pagina estatica: no versionar basura local ni secretos
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+coverage/
+*.log
+*.err.log
+.DS_Store
+Thumbs.db
+*.zip
+*.7z
+*.tar
+*.tar.gz
