@@ -1,4 +1,4 @@
-﻿# Branding y mensaje
+# Branding y mensaje
 
 ## Marca
 

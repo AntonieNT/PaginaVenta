@@ -1,4 +1,4 @@
-﻿# Resumen comercial
+# Resumen comercial
 
 La pagina de venta presenta Cerrajeria POS a nuevos clientes y captura prospectos.
 

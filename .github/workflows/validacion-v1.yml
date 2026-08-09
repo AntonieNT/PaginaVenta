@@ -1,0 +1,22 @@
+﻿name: Validacion V1 Pagina Venta
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validar:
+    runs-on: windows-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Auditar secretos y artefactos
+        shell: pwsh
+        run: ./scripts/auditar-secretos-v1.ps1 -StrictMojibake
+
+      - name: Validar pagina estatica
+        shell: pwsh
+        run: ./scripts/validar-pagina-v1.ps1

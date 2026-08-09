@@ -1,4 +1,4 @@
-﻿# Git y GitHub
+# Git y GitHub
 
 ## Repositorio correcto
 

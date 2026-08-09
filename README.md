@@ -1,4 +1,4 @@
-﻿# Pagina de venta - Cerrajeria POS
+# Pagina de venta - Cerrajeria POS
 
 Esta carpeta contiene la pagina comercial estatica para ofrecer Cerrajeria POS y capturar prospectos.
 

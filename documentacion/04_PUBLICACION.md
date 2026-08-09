@@ -1,4 +1,4 @@
-﻿# Publicacion
+# Publicacion
 
 La pagina es estatica y puede publicarse en servicios de hosting web.
 

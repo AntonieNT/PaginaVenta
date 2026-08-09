@@ -1,4 +1,4 @@
-﻿# Formulario y panel de licencias
+# Formulario y panel de licencias
 
 El formulario de la pagina intenta registrar el prospecto en el panel interno:
 

@@ -1,4 +1,4 @@
-﻿# Documentacion - Pagina de venta
+# Documentacion - Pagina de venta
 
 Proyecto: `C:\Users\Antonie\Documents\PaginaVenta`
 
@@ -9,6 +9,7 @@ Proyecto: `C:\Users\Antonie\Documents\PaginaVenta`
 3. `03_BRANDING_Y_MENSAJE.md`
 4. `04_PUBLICACION.md`
 5. `05_GIT_GITHUB.md`
+6. `06_CIERRE_OPERATIVO_V1.md`
 
 ## Instalacion
 
