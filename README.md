@@ -50,28 +50,26 @@ No se publica el número de tarjeta de débito. Si el cliente quiere pagar con t
 
 ## Conexión con el panel de licencias
 
-El formulario intenta registrar el prospecto en el panel interno:
+La página pública usa WhatsApp o correo por defecto, porque GitHub Pages no puede hablar con el panel local de esta computadora.
 
-```text
-http://localhost:3090/api/public/leads
-```
+Si más adelante se publica un endpoint seguro para el panel de licencias, configura `CONFIG.licenseApiBase` en `script.js` con esa URL pública. Mientras esté vacío, el formulario prepara el mensaje comercial y lo envía por el canal configurado.
 
-Para probar el flujo completo:
+Para probar el flujo interno local:
 
 1. Abre `C:\Users\Antonie\Documents\Serial Proyecto`.
 2. Ejecuta `INICIAR_TODO_SERIAL.cmd`.
-3. Abre esta página de venta.
-4. Envía una solicitud de prueba.
-5. Verifica que aparezca como comprador o prospecto en el panel y en Google Sheets.
-
-Si el panel no está encendido, el formulario usa WhatsApp o correo como respaldo.
+3. Cambia temporalmente `CONFIG.licenseApiBase` a `http://localhost:3090`.
+4. Abre esta página de venta localmente.
+5. Envía una solicitud de prueba.
+6. Verifica que aparezca como comprador o prospecto en el panel y en Google Sheets.
+7. Regresa `CONFIG.licenseApiBase` a vacío antes de publicar.
 
 ## Cambiar datos de contacto
 
 Edita `script.js`:
 
-- `CONFIG.licenseApiBase`: URL del panel de licencias.
-- `CONFIG.email`: correo que recibirá solicitudes si el panel no responde.
+- `CONFIG.licenseApiBase`: URL pública del panel de licencias. Vacío significa WhatsApp/correo por defecto.
+- `CONFIG.email`: correo que recibirá solicitudes cuando se use respaldo por correo.
 - `CONFIG.whatsapp`: número en formato internacional sin espacios.
 - `CONFIG.product`: nombre comercial mostrado en el mensaje.
 - `CONFIG.downloadUrl`: liga oficial del instalador.

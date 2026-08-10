@@ -2,7 +2,7 @@ const CONFIG = {
   whatsapp: '527298089256',
   email: 'isc.marco.tinajero@gmail.com',
   product: 'Cerrajería POS',
-  licenseApiBase: 'http://localhost:3090',
+  licenseApiBase: '',
   downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.0.zip',
   paymentLink: ''
 };
@@ -122,8 +122,17 @@ document.querySelector('#leadForm')?.addEventListener('submit', async (event) =>
   const data = new FormData(form);
   const note = document.querySelector('#formNote');
   const button = form.querySelector('button[type="submit"]');
-  if (note) note.textContent = 'Registrando solicitud en el panel comercial...';
+
   if (button) button.disabled = true;
+
+  if (!CONFIG.licenseApiBase) {
+    const fallbackText = openFallbackContact(data);
+    if (note) note.textContent = `${fallbackText} Envía también tu comprobante de pago para emitir el serial.`;
+    if (button) button.disabled = false;
+    return;
+  }
+
+  if (note) note.textContent = 'Registrando solicitud en el panel comercial...';
 
   try {
     const result = await registerLead(data);
