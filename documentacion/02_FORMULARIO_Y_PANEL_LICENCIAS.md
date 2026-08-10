@@ -48,7 +48,10 @@ Después se revisa el pago, se aprueba y se genera licencia. El correo formal co
 En `script.js` de esta página:
 
 ```text
-CONFIG.googleFormUrl = 'https://docs.google.com/forms/d/TU_FORM_ID/viewform'
+CONFIG.googleFormUrl = 'ENLACE_PUBLICO_DEL_FORMULARIO'
 ```
 
 Si más adelante el panel de licencias se publica de forma segura, puede agregarse un endpoint propio, pero para esta versión la ruta más confiable es Google Form + panel interno.
+## Estado actual
+
+El enlace anterior del formulario respondió 401 No autorizado al probarlo públicamente. Por eso la página queda con CONFIG.googleFormUrl vacío hasta que se publique el formulario y se copie la liga pública de respuesta.

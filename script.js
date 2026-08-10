@@ -2,7 +2,7 @@ const CONFIG = {
   whatsapp: '527298089256',
   email: 'isc.marco.tinajero@gmail.com',
   product: 'Cerrajería POS',
-  googleFormUrl: 'https://docs.google.com/forms/d/152UCEV-lnRErZOWNadBnWrQDUqiXSc49YHGCwqcE_ok/viewform',
+  googleFormUrl: '',
   downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.0.zip'
 };
 

@@ -37,7 +37,7 @@ Configurar en `script.js`:
 CONFIG.googleFormUrl
 ```
 
-Mientras no exista un formulario publicado, se puede dejar vacío para que el botón abra WhatsApp/correo como respaldo.
+Actualmente debe quedarse vacío hasta pegar el enlace público real del formulario. Si está vacío, el botón abre WhatsApp/correo como respaldo.
 
 ## Descarga oficial
 
