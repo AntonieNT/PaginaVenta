@@ -35,3 +35,16 @@ https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/Ce
 ```
 
 La descarga no incluye código fuente, secretos, compradores, llaves privadas ni respaldos.
+## Catálogos iniciales publicados
+
+La página comunica que el producto instala una base inicial para:
+
+- Cerrajería: llaves, candados, chapas, marcas y servicios.
+- Tienda/supermercado: departamentos, productos de mostrador y servicios rápidos.
+- Taller mecánico: marcas/modelos de autos, refacciones y servicios.
+- Restaurante/cafetería: menú base, insumos, áreas de cocina y servicios.
+
+La página no cobra directamente. El cliente llena la solicitud, adjunta evidencia cuando corresponda y la licencia se autoriza desde el panel interno.
+## Facturación comercial
+
+La página solicita datos fiscales cuando el comprador requiere factura de la licencia: RFC, razón social, CP fiscal, régimen fiscal, uso CFDI y correo de facturación. El comprobante de pago se valida en el panel de licencias antes de emitir serial.

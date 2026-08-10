@@ -3,7 +3,7 @@ const CONFIG = {
   email: 'isc.marco.tinajero@gmail.com',
   product: 'Negocio POS Local',
   googleFormUrl: '',
-  downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.0.zip'
+  downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.2.zip'
 };
 
 const navToggle = document.querySelector('.nav-toggle');
@@ -83,6 +83,13 @@ function buildLeadMessage(data) {
     `Plan: ${data.get('plan')}`,
     `Locales: ${data.get('branches')}`,
     `Cajas: ${data.get('registers')}`,
+    `Requiere factura: ${data.get('requiresInvoice') || 'No'}`,
+    data.get('requiresInvoice') === 'Si' ? `RFC: ${data.get('rfc') || 'Pendiente'}` : '',
+    data.get('requiresInvoice') === 'Si' ? `Raz\u00f3n social: ${data.get('fiscalName') || 'Pendiente'}` : '',
+    data.get('requiresInvoice') === 'Si' ? `CP fiscal: ${data.get('fiscalZipCode') || 'Pendiente'}` : '',
+    data.get('requiresInvoice') === 'Si' ? `R\u00e9gimen fiscal: ${data.get('taxRegime') || 'Pendiente'}` : '',
+    data.get('requiresInvoice') === 'Si' ? `Uso CFDI: ${data.get('cfdiUse') || 'Pendiente'}` : '',
+    data.get('requiresInvoice') === 'Si' ? `Correo de facturaci\u00f3n: ${data.get('billingEmail') || data.get('email')}` : '',
     `Descarga oficial: ${CONFIG.downloadUrl}`,
     `Mensaje: ${data.get('message') || 'Sin mensaje adicional'}`,
     'Para compra formal llenaré el formulario de solicitud y adjuntaré comprobante cuando corresponda.'
