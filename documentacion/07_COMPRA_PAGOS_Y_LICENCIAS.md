@@ -1,69 +1,52 @@
 # Compra, pagos y licencias
 
-Este documento describe el flujo comercial público para vender Cerrajería POS sin exponer información sensible del ecosistema.
+Este documento describe el flujo comercial recomendado para vender Cerrajería POS sin que la página pública cobre directamente.
 
 ## Flujo recomendado
 
 1. El cliente entra a la página pública de venta.
-2. Descarga el instalador desde el release oficial.
-3. Solicita su licencia mediante WhatsApp, correo o formulario conectado al panel interno.
-4. Se confirma el plan, vigencia, locales, cajas y dispositivos.
-5. El cliente paga por transferencia o solicita una liga de pago en línea.
-6. Se registra el pago en el panel de licencias.
-7. Se autoriza la licencia y el sistema envía el serial por correo.
-8. El cliente activa su instalación local.
+2. Revisa beneficios, módulos y precios orientativos.
+3. Abre el Google Form de solicitud.
+4. Captura sus datos de contacto, negocio y datos fiscales si aplica.
+5. Elige forma de pago preferida.
+6. Cuando ya pagó, adjunta comprobante en el mismo formulario.
+7. El panel interno importa la solicitud.
+8. Se valida el pago en el módulo de pagos.
+9. Se genera la licencia.
+10. El sistema envía el serial por correo.
 
-## Datos para transferencia
+## Datos de pago
 
-Publicar únicamente datos necesarios para recibir transferencias:
+Los datos de pago no deben ser el foco de la página pública. Es mejor mostrarlos dentro del formulario o compartirlos por seguimiento directo para que el cliente perciba un proceso más serio.
 
-- Titular: Marco Antonio Nava Tinajero
-- Banco: BBVA
-- Cuenta: 157 777 2747
-- CLABE: 012 180 01577772747 0
-- SWIFT: BCMRMXMMPYM
+Métodos aceptables:
 
-No publicar el número de tarjeta de débito. Para pagos con tarjeta se debe usar una liga de pago formal.
+- Transferencia interbancaria.
+- Depósito a cuenta BBVA.
+- Depósito o pago asociado a tarjeta BBVA, si se decide manejarlo así.
+- Liga de pago formal cuando exista proveedor configurado.
 
-## Pago en línea
+No solicitar datos sensibles de tarjeta por mensaje.
 
-La opción recomendada para México es Mercado Pago porque permite generar una experiencia conocida para clientes locales y puede aceptar tarjeta, transferencia y otros medios según la configuración de la cuenta.
+## Precios de lanzamiento sugeridos
 
-Alternativa: Stripe Payment Links, útil si se desea cobrar con tarjeta y manejar enlaces de pago reutilizables.
+Estos precios son orientativos para la primera versión comercial:
 
-## Comisión al cliente
+| Plan | Precio público sugerido | Alcance base |
+| --- | ---: | --- |
+| Mensual | Desde $399 MXN | 1 local, 1 caja, uso básico |
+| Semestral | Desde $1,999 MXN | 1 local, 1 caja, soporte inicial |
+| Anual | Desde $3,499 MXN | 1 local, 1 caja, mejor valor |
 
-Si el proveedor de pago cobra comisión, el importe final debe calcularse antes de enviar la liga de pago para que el cliente cubra la comisión.
+Extras sugeridos:
 
-Ejemplo operativo:
+- Caja adicional: $150 a $250 MXN mensuales, o equivalente anual.
+- Sucursal adicional: 40% a 60% del plan base.
+- Configuración o capacitación inicial: $1,000 a $2,500 MXN según alcance.
+- Soporte prioritario o migración de inventario: cotización aparte.
 
-```text
-Precio base + comisión de plataforma = total a pagar por el cliente
-```
+## Estrategia recomendada
 
-No guardar fórmulas rígidas en la página pública si todavía no se confirma el proveedor final, porque las comisiones pueden cambiar.
+Para los primeros clientes conviene vender como precio de lanzamiento, no como precio definitivo. Esto permite ajustar conforme se mida soporte, instalación y necesidades reales.
 
-## Registro interno
-
-Cada pago debe quedar registrado en el panel de licencias con:
-
-- Cliente o negocio.
-- Correo y teléfono.
-- Plan contratado.
-- Vigencia.
-- Importe pagado.
-- Método de pago.
-- Evidencia o referencia.
-- Serial emitido.
-- Usuario interno que autorizó.
-
-## Mensaje al cliente
-
-Después de confirmar el pago, el cliente debe recibir un correo formal con:
-
-- Nombre del negocio.
-- Plan contratado.
-- Vigencia.
-- Serial de activación.
-- Pasos para activar.
-- Correo de soporte.
+Publicar `desde` en la página filtra compradores sin comprometer todas las variantes.

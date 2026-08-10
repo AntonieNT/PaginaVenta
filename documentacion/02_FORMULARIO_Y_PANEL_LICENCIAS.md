@@ -1,40 +1,54 @@
 # Formulario y panel de licencias
 
-La página pública de venta usa WhatsApp o correo por defecto.
+La página pública debe enviar al comprador a un Google Form o a WhatsApp/correo como respaldo.
 
-Motivo: cuando la página vive en GitHub Pages, `localhost` apunta al equipo del cliente, no al panel interno de licencias. Por eso `CONFIG.licenseApiBase` debe quedarse vacío mientras no exista una URL pública segura.
+## Campos recomendados del formulario
 
-## Configuración pública recomendada
+### Datos del negocio
 
-En `script.js`:
+- Nombre del negocio.
+- Nombre completo del contacto.
+- Correo.
+- Teléfono o WhatsApp.
+- Dirección del negocio.
+- Número de sucursales.
+- Número de cajas.
+- Número de dispositivos aproximados.
+- Plan de interés: mensual, semestral, anual o cotización.
+
+### Datos fiscales opcionales
+
+- RFC.
+- Razón social.
+- Domicilio fiscal.
+- Régimen fiscal.
+- Uso de CFDI.
+
+### Pago y comprobante
+
+- Forma de pago: transferencia, depósito BBVA, liga de pago, pendiente por confirmar.
+- Importe pagado.
+- Referencia, folio o número de operación.
+- Archivo de comprobante.
+- Comentarios adicionales.
+
+## Importación al panel
+
+El panel interno tiene la acción `Importar formulario`, que lee respuestas desde Google Forms cuando está configurado `GOOGLE_FORM_ID`.
+
+El importador debe crear:
+
+- Comprador en estado `prospecto` cuando no hay comprobante.
+- Comprador y pago en estado `evidencia_recibida` cuando existe comprobante o referencia de pago.
+
+Después se revisa el pago, se aprueba y se genera licencia. El correo formal con serial se envía desde el panel.
+
+## Configuración pública
+
+En `script.js` de esta página:
 
 ```text
-CONFIG.licenseApiBase = ''
-CONFIG.email = 'correo de atención'
-CONFIG.whatsapp = 'número en formato internacional'
-CONFIG.product = 'Cerrajería POS'
-CONFIG.downloadUrl = 'release oficial vigente'
-CONFIG.paymentLink = 'liga de pago fija, si existe'
+CONFIG.googleFormUrl = 'https://docs.google.com/forms/d/TU_FORM_ID/viewform'
 ```
 
-Con esta configuración, el formulario prepara el mensaje comercial y abre WhatsApp o correo.
-
-## Integración futura con panel público
-
-Si después se publica un backend seguro para recibir prospectos, configurar:
-
-```text
-CONFIG.licenseApiBase = 'https://tu-dominio/api'
-```
-
-Ese endpoint deberá reenviar el prospecto al panel de licencias y guardar el seguimiento en la nube.
-
-## Prueba local del panel
-
-1. Inicia el panel de licencias en `C:\Users\Antonie\Documents\Serial Proyecto`.
-2. Ejecuta `INICIAR_TODO_SERIAL.cmd`.
-3. Cambia temporalmente `CONFIG.licenseApiBase` a `http://localhost:3090`.
-4. Abre la página de venta localmente.
-5. Envía un formulario demo.
-6. Confirma que aparece en el panel y en Google Sheets.
-7. Regresa `CONFIG.licenseApiBase` a vacío antes de publicar.
+Si más adelante el panel de licencias se publica de forma segura, puede agregarse un endpoint propio, pero para esta versión la ruta más confiable es Google Form + panel interno.

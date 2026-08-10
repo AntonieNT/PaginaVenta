@@ -19,8 +19,8 @@
       <a href="#modulos">Módulos</a>
       <a href="#flujo">Flujo</a>
       <a href="#planes">Planes</a>
-      <a href="#comprar">Comprar</a>
-      <a href="#demo">Contacto</a>
+      <a href="#solicitud">Solicitar</a>
+      <a href="#faq">Preguntas</a>
     </nav>
   </header>
 
@@ -33,7 +33,7 @@
         <h1 id="hero-title">Cerrajería POS</h1>
         <p class="hero-copy">Administra ventas, inventario, cajas, agenda, clientes, proveedores y autorizaciones desde una experiencia clara para mostrador, escritorio y modo táctil.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#comprar">Comprar licencia</a>
+          <button class="button primary" type="button" id="heroFormButton">Solicitar licencia</button>
           <a class="button ghost" href="#modulos">Ver módulos</a>
         </div>
         <div class="hero-points" aria-label="Beneficios principales">
@@ -135,73 +135,67 @@
 
     <section class="section" id="planes">
       <div class="section-heading">
-        <p class="eyebrow">Comercialización</p>
-        <h2>Planes por vigencia y acompañamiento.</h2>
-        <p>Los importes finales se ajustan por promoción, cantidad de sucursales, cajas, dispositivos y soporte requerido.</p>
+        <p class="eyebrow">Planes de lanzamiento</p>
+        <h2>Precios orientativos para validar el alcance antes de activar.</h2>
+        <p>La cotización final se confirma según número de sucursales, cajas, dispositivos, soporte y configuración requerida.</p>
       </div>
       <div class="pricing-grid">
         <article class="price-card">
           <p class="plan-name">Mensual</p>
-          <h3>Inicio controlado</h3>
-          <p>Ideal para probar el sistema en un local y validar la operación diaria.</p>
-          <button class="button secondary plan-button" type="button" data-plan="Mensual">Cotizar mensual</button>
+          <h3>Desde $399 MXN</h3>
+          <p>Para probar el sistema en un local, una caja y operación básica.</p>
+          <button class="button secondary plan-button" type="button" data-plan="Mensual">Solicitar mensual</button>
         </article>
         <article class="price-card featured">
           <p class="plan-name">Semestral</p>
-          <h3>Operación estable</h3>
-          <p>Recomendado para cerrajerías que ya trabajan con inventario y personal fijo.</p>
-          <button class="button primary plan-button" type="button" data-plan="Semestral">Cotizar semestral</button>
+          <h3>Desde $1,999 MXN</h3>
+          <p>Recomendado para cerrajerías que quieren operar con continuidad y soporte inicial.</p>
+          <button class="button primary plan-button" type="button" data-plan="Semestral">Solicitar semestral</button>
         </article>
         <article class="price-card">
           <p class="plan-name">Anual</p>
-          <h3>Crecimiento</h3>
-          <p>Para negocios con más de una sucursal, varias cajas o necesidad de soporte prioritario.</p>
-          <button class="button secondary plan-button" type="button" data-plan="Anual">Cotizar anual</button>
+          <h3>Desde $3,499 MXN</h3>
+          <p>Mejor valor para un local con uso formal, respaldos, reportes y licencia anual.</p>
+          <button class="button secondary plan-button" type="button" data-plan="Anual">Solicitar anual</button>
         </article>
       </div>
+      <p class="price-note">Precios de lanzamiento para primera versión comercial. Locales, cajas o dispositivos adicionales se cotizan antes de emitir la licencia.</p>
     </section>
 
-    <section class="section purchase" id="comprar">
+    <section class="section purchase" id="solicitud">
       <div class="section-heading">
-        <p class="eyebrow">Comprar licencia</p>
-        <h2>Descarga el instalador y solicita tu serial de activación.</h2>
-        <p>El instalador puede descargarse desde GitHub. Para activar la operación se emite una licencia comercial después de confirmar el pago y los datos del negocio.</p>
+        <p class="eyebrow">Solicitud de licencia</p>
+        <h2>Primero registramos tus datos; después confirmamos pago y activación.</h2>
+        <p>Para dar confianza, la compra se atiende con formulario. Ahí se capturan datos del negocio, datos fiscales si aplican, forma de pago elegida y comprobante cuando ya exista.</p>
       </div>
-      <div class="purchase-layout">
+      <div class="purchase-layout request-layout">
         <article class="purchase-card download-card">
-          <h3>1. Descarga oficial</h3>
-          <p>Usa siempre el release oficial para instalar la versión vigente.</p>
-          <a class="button primary full" href="https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.0.zip" target="_blank" rel="noopener">Descargar Cerrajería POS</a>
-          <a class="text-link" href="https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest" target="_blank" rel="noopener">Ver notas de la versión</a>
+          <h3>1. Conoce e instala</h3>
+          <p>Descarga el instalador oficial y valida que el sistema corresponde a tu operación.</p>
+          <a class="button secondary full" href="https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.0.zip" target="_blank" rel="noopener">Descargar instalador</a>
+          <a class="text-link" href="https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest" target="_blank" rel="noopener">Ver release oficial</a>
         </article>
 
-        <article class="purchase-card bank-card">
-          <h3>2. Pago por transferencia</h3>
-          <p>Realiza la transferencia por el importe confirmado y envía el comprobante con los datos de tu negocio.</p>
-          <dl class="bank-list">
-            <div><dt>Titular</dt><dd>Marco Antonio Nava Tinajero</dd></div>
-            <div><dt>Cuenta</dt><dd><span>157 777 2747</span><button type="button" class="copy-button" data-copy="1577772747">Copiar</button></dd></div>
-            <div><dt>CLABE</dt><dd><span>012 180 01577772747 0</span><button type="button" class="copy-button" data-copy="012180015777727470">Copiar</button></dd></div>
-            <div><dt>Banco</dt><dd>BBVA</dd></div>
-            <div><dt>SWIFT</dt><dd><span>BCMRMXMMPYM</span><button type="button" class="copy-button" data-copy="BCMRMXMMPYM">Copiar</button></dd></div>
-          </dl>
-          <p class="small-note">Por seguridad, los pagos con tarjeta se atienden únicamente mediante liga de pago; no solicitamos números de tarjeta por mensaje.</p>
+        <article class="purchase-card form-card">
+          <h3>2. Llena la solicitud</h3>
+          <p>El formulario concentra la información necesaria para contactarte, confirmar el plan y recibir comprobante de pago cuando corresponda.</p>
+          <button class="button primary full" type="button" id="formButton">Abrir formulario de solicitud</button>
+          <p class="small-note">Si el formulario no abre, también puedes pedir seguimiento por WhatsApp desde esta página.</p>
         </article>
 
-        <article class="purchase-card online-card">
-          <h3>3. Pago en línea</h3>
-          <p>Si prefieres pagar con tarjeta, solicita una liga de pago. La comisión de la plataforma se suma al total antes de confirmar.</p>
-          <button class="button secondary full" type="button" id="onlinePaymentButton">Solicitar liga de pago</button>
-          <p class="small-note">Recomendado: Mercado Pago Checkout Pro. También puede usarse Stripe Payment Links cuando la cuenta esté configurada.</p>
+        <article class="purchase-card review-card">
+          <h3>3. Revisamos y enviamos serial</h3>
+          <p>Cuando el comprobante queda validado en el panel interno, autorizamos la licencia y el sistema manda el serial al correo registrado.</p>
+          <p class="small-note">No se solicita información sensible de tarjeta por mensaje. Los pagos con tarjeta deben ir por liga formal.</p>
         </article>
       </div>
     </section>
 
     <section class="contact" id="demo">
       <div class="contact-copy">
-        <p class="eyebrow">Solicita tu licencia</p>
-        <h2>Comparte los datos básicos y preparamos el seguimiento.</h2>
-        <p>El formulario arma un mensaje listo para enviar. Puedes usar correo o WhatsApp según el canal disponible.</p>
+        <p class="eyebrow">Contacto rápido</p>
+        <h2>¿Prefieres escribir primero?</h2>
+        <p>Este formulario solo prepara un mensaje de contacto. Para compra formal usa el formulario de solicitud.</p>
       </div>
       <form class="lead-form" id="leadForm">
         <label>Nombre del negocio<input name="business" required placeholder="Ej. Cerrajería Ezequiel"></label>
@@ -209,9 +203,8 @@
         <label>Correo<input name="email" type="email" required placeholder="correo@negocio.com"></label>
         <label>Teléfono o WhatsApp<input name="phone" required placeholder="Número de contacto"></label>
         <label>Plan de interés<select name="plan" id="planSelect"><option>Mensual</option><option>Semestral</option><option>Anual</option><option>Quiero recomendación</option></select></label>
-        <label>Forma de pago preferida<select name="paymentMethod" id="paymentSelect"><option>Transferencia bancaria</option><option>Liga de pago en línea</option><option>Quiero orientación</option></select></label>
         <label>Mensaje<textarea name="message" rows="4" placeholder="Cuéntanos cuántos locales, cajas o usuarios necesitas."></textarea></label>
-        <button class="button primary full" type="submit">Preparar solicitud</button>
+        <button class="button primary full" type="submit">Preparar mensaje</button>
         <p class="form-note" id="formNote">Atención por ISC. Marco Tinajero, isc.marco.tinajero@gmail.com</p>
       </form>
     </section>
@@ -224,6 +217,10 @@
       <details>
         <summary>¿El sistema puede instalarse en una computadora del negocio?</summary>
         <p>Sí. La versión local está pensada para instalarse en el equipo del cliente y consumirse desde los dispositivos permitidos en la red del negocio.</p>
+      </details>
+      <details>
+        <summary>¿Cómo se reporta un pago?</summary>
+        <p>El comprador llena el formulario de solicitud, elige forma de pago y adjunta comprobante cuando ya haya realizado la transferencia, depósito o pago acordado.</p>
       </details>
       <details>
         <summary>¿Se puede usar en celular o tablet?</summary>
@@ -249,7 +246,7 @@
   </footer>
 
   <div class="mobile-action">
-    <a class="button primary" href="#comprar">Comprar licencia</a>
+    <button class="button primary" type="button" id="mobileFormButton">Solicitar licencia</button>
   </div>
 
   <script src="script.js"></script>

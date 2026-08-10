@@ -236,6 +236,7 @@ h1 {
 .price-card.featured { border-color: rgba(244,178,47,.86); box-shadow: var(--shadow); }
 .plan-name { margin: 0; color: var(--brand); font-weight: 900; text-transform: uppercase; font-size: 13px; }
 .price-card .button { margin-top: auto; }
+.price-note { margin: 18px 0 0; color: var(--muted); line-height: 1.6; }
 
 
 .purchase { padding-top: 40px; }
@@ -260,6 +261,8 @@ h1 {
 .download-card { background: linear-gradient(180deg, #fff, #f4f9fd); }
 .bank-card { border-color: rgba(9,105,168,.24); }
 .online-card { background: #fffaf0; border-color: rgba(244,178,47,.5); }
+.form-card { background: #fffaf0; border-color: rgba(244,178,47,.55); }
+.review-card { background: linear-gradient(180deg, #fff, #f7fbf8); border-color: rgba(25,135,84,.24); }
 .bank-list { display: grid; gap: 10px; margin: 0; }
 .bank-list div {
   display: grid;
@@ -466,7 +469,7 @@ details p { margin: 12px 0 0; color: var(--muted); line-height: 1.6; }
     backdrop-filter: blur(12px);
   }
 
-  .mobile-action .button {
+  .mobile-action .button,`r`n  .mobile-action button {
     width: 100%;
   }
 }
