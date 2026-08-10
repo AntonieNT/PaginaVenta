@@ -1,10 +1,17 @@
-const CONFIG = {
+const DEFAULT_CONFIG = {
   whatsapp: '527298089256',
   email: 'isc.marco.tinajero@gmail.com',
   product: 'Negocio POS Local',
   googleFormUrl: '',
+  googleAppsScriptUrl: '',
   leadApiUrl: '',
+  whatsappFallback: false,
   downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.4.zip'
+};
+
+const CONFIG = {
+  ...DEFAULT_CONFIG,
+  ...(window.NEGOCIO_POS_CONFIG || {})
 };
 
 const navToggle = document.querySelector('.nav-toggle');
@@ -32,13 +39,13 @@ function verticalLabel(value) {
 }
 
 function openMessage(message, subjectText = `Solicitud de licencia ${CONFIG.product}`) {
-  if (CONFIG.whatsapp) {
+  if (CONFIG.whatsapp && CONFIG.whatsappFallback) {
     window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
-    return 'Solicitud preparada para WhatsApp.';
+    return 'Abrimos WhatsApp como respaldo manual.';
   }
   const subject = encodeURIComponent(subjectText);
   window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${encodeURIComponent(message)}`;
-  return 'Solicitud preparada en tu correo.';
+  return 'Abrimos tu correo como respaldo manual.';
 }
 
 function buildFormFallbackMessage(plan = '') {
@@ -46,17 +53,30 @@ function buildFormFallbackMessage(plan = '') {
     `Hola, quiero solicitar una licencia de prueba de 1 día para conocer ${CONFIG.product}.`,
     plan ? `Plan de interés: ${plan}` : '',
     `Descarga oficial: ${CONFIG.downloadUrl}`,
-    'Me pueden compartir el formulario de solicitud. Quiero probar primero el flujo antes de confirmar la compra.'
+    'Me pueden apoyar con el registro formal de mi solicitud.'
   ].filter(Boolean).join('\n');
+}
+
+function setFormNote(message) {
+  const note = document.querySelector('#formNote');
+  if (note) note.textContent = message;
 }
 
 function openRequestForm(plan = '') {
   selectedPlan = plan || selectedPlan;
-  if (CONFIG.googleFormUrl) {
-    window.open(CONFIG.googleFormUrl, '_blank', 'noopener');
+  const select = document.querySelector('#planSelect');
+  if (select && selectedPlan) select.value = selectedPlan;
+  document.querySelector('#demo')?.scrollIntoView({ behavior: 'smooth' });
+
+  if (CONFIG.leadApiUrl || CONFIG.googleAppsScriptUrl) {
+    setFormNote('Completa el formulario. Tu solicitud quedará registrada para seguimiento y prueba de licencia.');
     return;
   }
-  openMessage(buildFormFallbackMessage(selectedPlan), `Formulario de solicitud ${CONFIG.product}`);
+  if (CONFIG.googleFormUrl) {
+    setFormNote('Completa tus datos aquí o abre el formulario oficial para que tu solicitud quede registrada.');
+    return;
+  }
+  setFormNote('El registro automático aún no tiene configurado el formulario oficial. Puedes dejar tus datos y te mostraremos el respaldo manual.');
 }
 
 document.querySelectorAll('.plan-button').forEach((button) => {
@@ -73,6 +93,38 @@ document.querySelectorAll('.plan-button').forEach((button) => {
   document.querySelector(selector)?.addEventListener('click', () => openRequestForm(selectedPlan));
 });
 
+function buildLeadPayload(data) {
+  return {
+    businessName: data.get('business'),
+    business: data.get('business'),
+    contactName: data.get('name'),
+    name: data.get('name'),
+    email: data.get('email'),
+    phone: data.get('phone'),
+    whatsapp: data.get('phone'),
+    requestedVertical: data.get('vertical'),
+    vertical: data.get('vertical'),
+    verticalLabel: verticalLabel(data.get('vertical')),
+    requestedPlan: data.get('plan'),
+    plan: data.get('plan'),
+    requestedBranches: data.get('branches'),
+    branches: data.get('branches'),
+    requestedRegisters: data.get('registers'),
+    registers: data.get('registers'),
+    requiresInvoice: data.get('requiresInvoice') === 'Si',
+    rfc: data.get('rfc'),
+    fiscalName: data.get('fiscalName'),
+    fiscalZipCode: data.get('fiscalZipCode'),
+    taxRegime: data.get('taxRegime'),
+    cfdiUse: data.get('cfdiUse'),
+    billingEmail: data.get('billingEmail'),
+    message: data.get('message'),
+    sourcePage: location.href,
+    source: 'pagina_venta',
+    submittedAt: new Date().toISOString()
+  };
+}
+
 function buildLeadMessage(data) {
   return [
     `Hola, quiero recibir una prueba de 1 día de ${CONFIG.product}.`,
@@ -86,48 +138,37 @@ function buildLeadMessage(data) {
     `Cajas: ${data.get('registers')}`,
     `Requiere factura: ${data.get('requiresInvoice') || 'No'}`,
     data.get('requiresInvoice') === 'Si' ? `RFC: ${data.get('rfc') || 'Pendiente'}` : '',
-    data.get('requiresInvoice') === 'Si' ? `Raz\u00f3n social: ${data.get('fiscalName') || 'Pendiente'}` : '',
+    data.get('requiresInvoice') === 'Si' ? `Razón social: ${data.get('fiscalName') || 'Pendiente'}` : '',
     data.get('requiresInvoice') === 'Si' ? `CP fiscal: ${data.get('fiscalZipCode') || 'Pendiente'}` : '',
-    data.get('requiresInvoice') === 'Si' ? `R\u00e9gimen fiscal: ${data.get('taxRegime') || 'Pendiente'}` : '',
+    data.get('requiresInvoice') === 'Si' ? `Régimen fiscal: ${data.get('taxRegime') || 'Pendiente'}` : '',
     data.get('requiresInvoice') === 'Si' ? `Uso CFDI: ${data.get('cfdiUse') || 'Pendiente'}` : '',
-    data.get('requiresInvoice') === 'Si' ? `Correo de facturaci\u00f3n: ${data.get('billingEmail') || data.get('email')}` : '',
+    data.get('requiresInvoice') === 'Si' ? `Correo de facturación: ${data.get('billingEmail') || data.get('email')}` : '',
     `Descarga oficial: ${CONFIG.downloadUrl}`,
     `Mensaje: ${data.get('message') || 'Sin mensaje adicional'}`,
-    'Para compra formal llenaré el formulario de solicitud y adjuntaré comprobante cuando corresponda.'
+    'Quedo atento al seguimiento de mi solicitud.'
   ].filter(Boolean).join('\n');
 }
 
-
 async function sendLeadToPanel(data) {
   if (!CONFIG.leadApiUrl) return null;
-  const payload = {
-    businessName: data.get('business'),
-    contactName: data.get('name'),
-    email: data.get('email'),
-    phone: data.get('phone'),
-    whatsapp: data.get('phone'),
-    requestedVertical: data.get('vertical'),
-    requestedPlan: data.get('plan'),
-    requestedBranches: data.get('branches'),
-    requestedRegisters: data.get('registers'),
-    requiresInvoice: data.get('requiresInvoice') === 'Si',
-    rfc: data.get('rfc'),
-    fiscalName: data.get('fiscalName'),
-    fiscalZipCode: data.get('fiscalZipCode'),
-    taxRegime: data.get('taxRegime'),
-    cfdiUse: data.get('cfdiUse'),
-    billingEmail: data.get('billingEmail'),
-    message: data.get('message'),
-    sourcePage: location.href,
-    source: 'pagina_venta',
-  };
   const response = await fetch(CONFIG.leadApiUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(buildLeadPayload(data)),
   });
-  if (!response.ok) throw new Error('No se pudo registrar automaticamente.');
+  if (!response.ok) throw new Error('No se pudo registrar automáticamente en el panel.');
   return response.json();
+}
+
+async function sendLeadToGoogleAppsScript(data) {
+  if (!CONFIG.googleAppsScriptUrl) return null;
+  await fetch(CONFIG.googleAppsScriptUrl, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(buildLeadPayload(data)),
+  });
+  return { ok: true, provider: 'google_apps_script' };
 }
 
 document.querySelector('#leadForm')?.addEventListener('submit', async (event) => {
@@ -145,11 +186,39 @@ document.querySelector('#leadForm')?.addEventListener('submit', async (event) =>
       form.reset();
       return;
     }
-    const resultText = openMessage(buildLeadMessage(data));
-    if (note) note.textContent = `${resultText} Te trataremos con cuidado y resolveremos tus dudas antes de la compra.`;
+
+    const cloudRegistered = await sendLeadToGoogleAppsScript(data);
+    if (cloudRegistered) {
+      if (note) note.textContent = 'Registro recibido. Tu solicitud quedó guardada para seguimiento; revisa tu correo o espera contacto del equipo.';
+      form.reset();
+      return;
+    }
+
+    if (CONFIG.googleFormUrl) {
+      window.open(CONFIG.googleFormUrl, '_blank', 'noopener');
+      if (note) note.textContent = 'Abrimos el formulario oficial para guardar tu solicitud. Si ya capturaste datos aquí, repítelos en el formulario para que queden en la nube.';
+      return;
+    }
+
+    if (CONFIG.whatsappFallback || CONFIG.email) {
+      const resultText = openMessage(buildLeadMessage(data));
+      if (note) note.textContent = `${resultText} El registro automático aún no está configurado.`;
+      return;
+    }
+
+    if (note) note.textContent = 'El registro automático aún no está configurado. Intenta más tarde o contacta al equipo de soporte.';
   } catch (error) {
-    const resultText = openMessage(buildLeadMessage(data));
-    if (note) note.textContent = `${resultText} No se completo el registro automatico, pero ya quedo preparado el contacto.`;
+    if (CONFIG.googleFormUrl) {
+      window.open(CONFIG.googleFormUrl, '_blank', 'noopener');
+      if (note) note.textContent = 'No pudimos registrar directo en el panel. Abrimos el formulario oficial para no perder tu solicitud.';
+      return;
+    }
+    if (CONFIG.whatsappFallback || CONFIG.email) {
+      const resultText = openMessage(buildLeadMessage(data));
+      if (note) note.textContent = `${resultText} No se completó el registro automático, pero no queremos perder tu solicitud.`;
+      return;
+    }
+    if (note) note.textContent = 'No se completó el registro automático. Intenta nuevamente en unos minutos.';
   } finally {
     if (button) button.disabled = false;
   }

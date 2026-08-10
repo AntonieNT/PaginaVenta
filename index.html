@@ -253,7 +253,7 @@
       <p class="small-note"><b>Datos fiscales para compra:</b> si el cliente necesita factura de la licencia, se solicitan RFC, raz&oacute;n social, CP fiscal, r&eacute;gimen fiscal, uso CFDI y correo de facturaci&oacute;n.</p>
       <div class="purchase-layout request-layout">
         <article class="purchase-card download-card"><h3>1. Descarga oficial</h3><p>Instalador listo para clientes con descarga directa.</p><a class="button secondary full" href="https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.4.zip" target="_blank" rel="noopener">Descargar instalador</a></article>
-        <article class="purchase-card form-card"><h3>2. Solicitud y prueba</h3><p>Captura datos del negocio, giro, locales, cajas y contacto. Con ese registro se puede enviar una prueba de 1 d&iacute;a al correo del cliente.</p><button class="button primary full" type="button" id="formButton">Abrir formulario de solicitud</button><p class="small-note">Si el formulario no abre, se prepara un mensaje por WhatsApp o correo.</p></article>
+        <article class="purchase-card form-card"><h3>2. Solicitud y prueba</h3><p>Captura datos del negocio, giro, locales, cajas y contacto. Con ese registro se puede enviar una prueba de 1 d&iacute;a al correo del cliente.</p><button class="button primary full" type="button" id="formButton">Abrir formulario de solicitud</button><p class="small-note">La solicitud queda lista para seguimiento comercial y prueba de licencia.</p></article>
         <article class="purchase-card review-card"><h3>3. Serial por correo</h3><p>Cuando el pago queda validado, se emite la licencia con giro, locales, cajas, dispositivos y vigencia.</p><p class="small-note">El serial llega al correo registrado.</p></article>
       </div>
     </section>
@@ -262,7 +262,7 @@
       <div class="contact-copy">
         <p class="eyebrow">Contacto rápido</p>
         <h2>Escríbenos para revisar tu caso.</h2>
-        <p>Este formulario prepara un mensaje inicial. Para compra formal usa el formulario de solicitud.</p>
+        <p>Este formulario registra la solicitud para seguimiento comercial, prueba de licencia y datos fiscales si el cliente requiere factura.</p>
       </div>
       <form class="lead-form" id="leadForm">
         <label>Nombre del negocio<input name="business" required placeholder="Ej. cerrajería, tienda, restaurante o taller"></label>
@@ -281,8 +281,8 @@
         <label>Uso CFDI<input name="cfdiUse" placeholder="Ej. G03"></label>
         <label>Correo de facturaci&oacute;n<input name="billingEmail" type="email" placeholder="facturacion@negocio.com"></label>
         <label>Mensaje<textarea name="message" rows="4" placeholder="Cuéntanos cuántos locales, cajas, usuarios o necesidades especiales tienes."></textarea></label>
-        <button class="button primary full" type="submit">Preparar mensaje</button>
-        <p class="form-note" id="formNote">Atención por ISC. Marco Tinajero, isc.marco.tinajero@gmail.com</p>
+        <button class="button primary full" type="submit">Enviar solicitud</button>
+        <p class="form-note" id="formNote">Tu solicitud será tratada con cuidado por ISC. Marco Tinajero.</p>
       </form>
     </section>
 
@@ -303,6 +303,7 @@
   </footer>
 
   <div class="mobile-action"><button class="button primary" type="button" id="mobileFormButton">Solicitar licencia</button></div>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

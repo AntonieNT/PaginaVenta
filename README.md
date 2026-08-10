@@ -1,6 +1,6 @@
 # Negocio POS Local - Página de venta
 
-Página comercial pública para ofrecer el sistema POS local y canalizar prospectos al flujo de solicitud de licencia.
+Página comercial pública para ofrecer el sistema POS local y canalizar prospectos al flujo formal de solicitud de licencia.
 
 ## Giros incluidos
 
@@ -12,18 +12,22 @@ Página comercial pública para ofrecer el sistema POS local y canalizar prospec
 
 ## Flujo comercial
 
-1. El prospecto revisa giros, módulos y planes.
+1. El prospecto revisa giros, módulos, prueba y planes.
 2. Solicita licencia desde la página.
-3. Se confirma alcance: giro, locales, cajas, dispositivos y capacitación.
-4. El cliente realiza el pago por el medio acordado.
-5. El comprobante se valida en el panel de licencias.
-6. El serial se envía por correo formal.
+3. La solicitud se registra en Google Sheets/Drive o en el panel de licencias si está publicado.
+4. El cliente puede recibir una prueba de 1 día para validar el flujo.
+5. Se confirma alcance: giro, locales, cajas, dispositivos y capacitación.
+6. El cliente realiza el pago por el medio acordado.
+7. El comprobante se valida en el panel de licencias.
+8. El serial se envía por correo formal.
 
 ## Archivos principales
 
 - `index.html`: contenido comercial.
 - `styles.css`: estilos responsivos.
-- `script.js`: menú móvil, selección de plan y mensajes de contacto.
+- `script.js`: menú móvil, selección de plan y envío de solicitud.
+- `config.js`: endpoints públicos para registro en nube o panel.
+- `integraciones/google-apps-script/Code.gs`: Web App para guardar solicitudes en Google Sheets.
 - `documentacion/`: notas operativas y comerciales.
 
 ## Descarga oficial
@@ -31,10 +35,23 @@ Página comercial pública para ofrecer el sistema POS local y canalizar prospec
 La página enlaza al release público de descarga:
 
 ```text
-https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.3.zip
+https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.4.zip
 ```
 
-La descarga no incluye código fuente, secretos, compradores, llaves privadas ni respaldos.
+La descarga no incluye secretos, compradores, llaves privadas, respaldos ni herramientas internas.
+
+## Registro en Google Drive
+
+El flujo recomendado es publicar el Web App de Google Apps Script incluido y pegar su URL en `config.js`.
+
+Documento paso a paso:
+
+```text
+documentacion/formulario-google-drive.md
+```
+
+WhatsApp queda como respaldo manual, no como sustituto del registro formal.
+
 ## Catálogos iniciales publicados
 
 La página comunica que el producto instala una base inicial para:
@@ -45,6 +62,7 @@ La página comunica que el producto instala una base inicial para:
 - Restaurante/cafetería: menú base, insumos, áreas de cocina y servicios.
 
 La página no cobra directamente. El cliente llena la solicitud, adjunta evidencia cuando corresponda y la licencia se autoriza desde el panel interno.
+
 ## Facturación comercial
 
 La página solicita datos fiscales cuando el comprador requiere factura de la licencia: RFC, razón social, CP fiscal, régimen fiscal, uso CFDI y correo de facturación. El comprobante de pago se valida en el panel de licencias antes de emitir serial.
