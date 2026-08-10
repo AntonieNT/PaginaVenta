@@ -4,7 +4,7 @@ const CONFIG = {
   product: 'Negocio POS Local',
   googleFormUrl: '',
   leadApiUrl: '',
-  downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.3.zip'
+  downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.4.zip'
 };
 
 const navToggle = document.querySelector('.nav-toggle');
@@ -43,7 +43,7 @@ function openMessage(message, subjectText = `Solicitud de licencia ${CONFIG.prod
 
 function buildFormFallbackMessage(plan = '') {
   return [
-    `Hola, quiero solicitar una licencia de prueba de 1 dia para conocer ${CONFIG.product}.`,
+    `Hola, quiero solicitar una licencia de prueba de 1 día para conocer ${CONFIG.product}.`,
     plan ? `Plan de interés: ${plan}` : '',
     `Descarga oficial: ${CONFIG.downloadUrl}`,
     'Me pueden compartir el formulario de solicitud. Quiero probar primero el flujo antes de confirmar la compra.'
@@ -75,7 +75,7 @@ document.querySelectorAll('.plan-button').forEach((button) => {
 
 function buildLeadMessage(data) {
   return [
-    `Hola, quiero recibir una prueba de 1 dia de ${CONFIG.product}.`,
+    `Hola, quiero recibir una prueba de 1 día de ${CONFIG.product}.`,
     `Negocio: ${data.get('business')}`,
     `Contacto: ${data.get('name')}`,
     `Correo: ${data.get('email')}`,
@@ -141,7 +141,7 @@ document.querySelector('#leadForm')?.addEventListener('submit', async (event) =>
   try {
     const registered = await sendLeadToPanel(data);
     if (registered) {
-      if (note) note.textContent = 'Registro recibido. Revisa el correo registrado para la licencia de prueba de 1 dia o espera seguimiento si requiere revision.';
+      if (note) note.textContent = 'Registro recibido. Revisa el correo registrado para la licencia de prueba de 1 día o espera seguimiento si requiere revisión.';
       form.reset();
       return;
     }
