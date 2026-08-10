@@ -50,7 +50,7 @@ Documento paso a paso:
 documentacion/formulario-google-drive.md
 ```
 
-WhatsApp queda como respaldo manual, no como sustituto del registro formal.
+WhatsApp y correo quedan como respaldo manual opcional, no como sustitutos del registro formal. Por defecto están apagados.
 
 ## Catálogos iniciales publicados
 

@@ -6,6 +6,7 @@ const DEFAULT_CONFIG = {
   googleAppsScriptUrl: '',
   leadApiUrl: '',
   whatsappFallback: false,
+  emailFallback: false,
   downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.4.zip'
 };
 
@@ -43,9 +44,12 @@ function openMessage(message, subjectText = `Solicitud de licencia ${CONFIG.prod
     window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
     return 'Abrimos WhatsApp como respaldo manual.';
   }
-  const subject = encodeURIComponent(subjectText);
-  window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${encodeURIComponent(message)}`;
-  return 'Abrimos tu correo como respaldo manual.';
+  if (CONFIG.email && CONFIG.emailFallback) {
+    const subject = encodeURIComponent(subjectText);
+    window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${encodeURIComponent(message)}`;
+    return 'Abrimos tu correo como respaldo manual.';
+  }
+  return 'El respaldo manual no está activado.';
 }
 
 function buildFormFallbackMessage(plan = '') {
@@ -76,7 +80,7 @@ function openRequestForm(plan = '') {
     setFormNote('Completa tus datos aquí o abre el formulario oficial para que tu solicitud quede registrada.');
     return;
   }
-  setFormNote('El registro automático aún no tiene configurado el formulario oficial. Puedes dejar tus datos y te mostraremos el respaldo manual.');
+  setFormNote('El registro en nube aún no está configurado. En cuanto esté activo, esta solicitud quedará guardada para seguimiento formal.');
 }
 
 document.querySelectorAll('.plan-button').forEach((button) => {
@@ -200,7 +204,7 @@ document.querySelector('#leadForm')?.addEventListener('submit', async (event) =>
       return;
     }
 
-    if (CONFIG.whatsappFallback || CONFIG.email) {
+    if (CONFIG.whatsappFallback || CONFIG.emailFallback) {
       const resultText = openMessage(buildLeadMessage(data));
       if (note) note.textContent = `${resultText} El registro automático aún no está configurado.`;
       return;
@@ -213,7 +217,7 @@ document.querySelector('#leadForm')?.addEventListener('submit', async (event) =>
       if (note) note.textContent = 'No pudimos registrar directo en el panel. Abrimos el formulario oficial para no perder tu solicitud.';
       return;
     }
-    if (CONFIG.whatsappFallback || CONFIG.email) {
+    if (CONFIG.whatsappFallback || CONFIG.emailFallback) {
       const resultText = openMessage(buildLeadMessage(data));
       if (note) note.textContent = `${resultText} No se completó el registro automático, pero no queremos perder tu solicitud.`;
       return;

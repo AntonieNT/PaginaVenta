@@ -1,6 +1,6 @@
 # Formulario comercial con Google Drive
 
-Objetivo: que la página de venta registre prospectos en Google Sheets/Drive y deje WhatsApp solo como respaldo manual.
+Objetivo: que la página de venta registre prospectos en Google Sheets/Drive y deje WhatsApp y correo solo como respaldo manual opcional.
 
 ## Opción recomendada
 
@@ -47,7 +47,8 @@ window.NEGOCIO_POS_CONFIG = {
   googleAppsScriptUrl: 'https://script.google.com/macros/s/XXXXX/exec',
   leadApiUrl: '',
   googleFormUrl: '',
-  whatsappFallback: false
+  whatsappFallback: false,
+  emailFallback: false
 };
 ```
 

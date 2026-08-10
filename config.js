@@ -10,6 +10,7 @@ window.NEGOCIO_POS_CONFIG = {
   // Importante: debe ser /viewform y aceptar respuestas públicas.
   googleFormUrl: '',
 
-  // WhatsApp queda apagado por defecto para que no sustituya el registro formal.
-  whatsappFallback: false
+  // Respaldos manuales apagados por defecto para que no sustituyan el registro formal.
+  whatsappFallback: false,
+  emailFallback: false
 };
