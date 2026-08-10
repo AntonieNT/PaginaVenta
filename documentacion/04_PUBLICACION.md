@@ -1,24 +1,42 @@
-# Publicacion
+# Publicación
 
-La pagina es estatica y puede publicarse en servicios de hosting web.
+La página es estática y puede publicarse en GitHub Pages desde el repositorio `AntonieNT/PaginaVenta`.
+
+## URL pública
+
+Cuando GitHub Pages está habilitado desde la rama `main` y la carpeta raíz `/`, la URL esperada es:
+
+```text
+https://antonient.github.io/PaginaVenta/
+```
 
 ## Antes de publicar
 
 1. Revisar correo y WhatsApp en `script.js`.
-2. Definir si el panel de licencias sera publico o si el formulario usara correo/WhatsApp.
-3. Verificar textos, imagenes y enlaces.
-4. Probar en movil.
-5. Confirmar que el repositorio sea privado.
+2. Confirmar que `CONFIG.downloadUrl` apunte al release oficial vigente.
+3. Confirmar que los datos bancarios sean correctos.
+4. No publicar número de tarjeta de débito.
+5. Revisar textos, imágenes y enlaces.
+6. Probar en escritorio y móvil.
+7. Confirmar que no existan `.env`, JSON de Google, claves SMTP, respaldos ni datos reales de clientes.
 
-## Seguridad
+## GitHub Pages
 
-No publicar claves, `.env`, JSON de Google ni datos de clientes en esta carpeta.
+Configuración recomendada:
 
-## Recomendacion
+- Repositorio: `AntonieNT/PaginaVenta`
+- Rama: `main`
+- Carpeta: `/`
+- Visibilidad: pública, porque GitHub Pages expone el sitio en internet.
 
-Publicar el sitio desde un repositorio privado llamado `cerrajeria-pos-pagina-venta`. Si se usa una organizacion de GitHub, agruparlo junto con:
+## Enlace desde el release
 
-- `cerrajeria-pos-frontend`
-- `cerrajeria-pos-backend`
-- `cerrajeria-pos-seriales`
-- `cerrajeria-pos-pagina-venta`
+El release público de descarga debe mencionar esta página para que el cliente sepa dónde comprar o renovar licencia:
+
+```text
+https://antonient.github.io/PaginaVenta/
+```
+
+## Seguridad comercial
+
+Esta carpeta solo debe contener contenido público de venta. La lógica de licencias, claves de Google, credenciales SMTP, respaldos y datos de compradores se quedan fuera de este repositorio.

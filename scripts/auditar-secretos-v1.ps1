@@ -37,7 +37,7 @@ $secretPatterns = @(
   @{ Name = "JSON de Google con private_key"; Pattern = '"private_key"\s*:\s*"-----BEGIN PRIVATE KEY' },
   @{ Name = "Token GitHub"; Pattern = 'gh[pousr]_[A-Za-z0-9_]{20,}' },
   @{ Name = "Google Maps API key"; Pattern = 'AIza[0-9A-Za-z_-]{20,}' },
-  @{ Name = "Password Postgres en claro"; Pattern = 'PGPASSWORD\s*=\s*["''](?!<)[^"'']+["'']' },
+  @{ Name = "Password Postgres en claro"; Pattern = '(^|[^A-Za-z0-9_])PGPASSWORD\s*=\s*["''](?!<)[^"'']+["'']' },
   @{ Name = "Password historico de Postgres"; Pattern = [regex]::Escape($historicalPgPassword) }
 )
 
