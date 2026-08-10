@@ -34,7 +34,7 @@
         <h1 id="hero-title">Negocio POS Local</h1>
         <p class="hero-copy">Un sistema instalable para vender, controlar inventario, abrir y cerrar caja, registrar clientes, manejar proveedores, emitir tickets y trabajar desde escritorio, móvil o pantalla táctil.</p>
         <div class="hero-actions">
-          <button class="button primary" type="button" id="heroFormButton">Solicitar licencia</button>
+          <button class="button primary" type="button" id="heroFormButton">Solicitar prueba gratis</button>
           <a class="button ghost" href="#planes">Ver planes</a>
         </div>
         <div class="hero-points" aria-label="Beneficios principales">
@@ -49,6 +49,20 @@
       <div><b>Precio de lanzamiento</b><span>Planes accesibles para empezar sin una inversión pesada.</span></div>
       <div><b>Instalable</b><span>El negocio conserva su operación local y puede trabajar en su red.</span></div>
       <div><b>Adaptable</b><span>Cerrajerías, tiendas, talleres, restaurantes y cafeterías.</span></div>
+    </section>
+
+    <section class="trial-band" id="prueba">
+      <div>
+        <p class="eyebrow">Prueba antes de decidir</p>
+        <h2>Una licencia de prueba de 1 d&iacute;a para recorrer el sistema con calma.</h2>
+        <p>Queremos que cada comprador se sienta acompa&ntilde;ado desde el primer contacto. Al registrar sus datos se puede emitir una prueba por correo para revisar el flujo real antes de contratar.</p>
+      </div>
+      <div class="trial-card">
+        <span class="trial-badge">Prueba 1 d&iacute;a</span>
+        <h3>Incluye una acci&oacute;n guiada por m&oacute;dulo</h3>
+        <p>Ventas, inventario, caja, clientes, proveedores, agenda, reportes, etiquetas y facturaci&oacute;n seg&uacute;n el giro elegido.</p>
+        <button class="button primary" type="button" id="trialButton">Solicitar prueba</button>
+      </div>
     </section>
 
     <section class="section" id="giros">
@@ -109,6 +123,50 @@
         <article class="module-card"><span class="icon">C</span><h3>Caja y cortes</h3><p>Apertura, cierre, movimientos, arqueo, diferencias y corte diario para proteger efectivo y ventas.</p></article>
         <article class="module-card"><span class="icon">A</span><h3>Autorizaciones</h3><p>Cancelaciones y movimientos delicados con aprobación de administrador o propietario.</p></article>
         <article class="module-card"><span class="icon">R</span><h3>Reportes</h3><p>Ventas, servicios, productos, citas, stock bajo, movimientos y seguimiento del rumbo del negocio.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="vistas">
+      <div class="section-heading">
+        <p class="eyebrow">Vistas de referencia</p>
+        <h2>Una experiencia pensada para mostrador, escritorio, m&oacute;vil y pantalla t&aacute;ctil.</h2>
+        <p>Estas referencias muestran la idea de trabajo: pasos claros, botones visibles, informaci&oacute;n del negocio y procesos separados para que el equipo opere con seguridad.</p>
+      </div>
+      <div class="screen-gallery">
+        <article class="screen-card">
+          <div class="mock-window">
+            <div class="mock-top"><span></span><span></span><span></span></div>
+            <div class="mock-sale">
+              <div><small>Venta</small><b>Mostrador</b></div>
+              <div class="mock-search">Buscar por nombre o c&oacute;digo</div>
+              <div class="mock-list"><span>Llave residencial</span><b>$35</b></div>
+              <div class="mock-list"><span>Duplicado auto</span><b>$120</b></div>
+              <div class="mock-total">Total <b>$155</b></div>
+            </div>
+          </div>
+          <h3>Punto de venta claro</h3>
+          <p>Tipo de venta, categor&iacute;a, art&iacute;culo o servicio, carrito y confirmaci&oacute;n antes de cobrar.</p>
+        </article>
+        <article class="screen-card">
+          <div class="mock-window compact">
+            <div class="mock-top"><span></span><span></span><span></span></div>
+            <div class="mock-grid-mini"><span>Stock bajo</span><b>5</b><span>Cr&iacute;ticos</span><b>1</b><span>Etiquetas</span><b>24</b></div>
+            <div class="mock-bar"><span style="width:72%"></span></div>
+            <div class="mock-bar"><span style="width:42%"></span></div>
+          </div>
+          <h3>Inventario y etiquetas</h3>
+          <p>Control por almac&eacute;n, c&oacute;digos de barras, alertas por agotarse e impresi&oacute;n de etiquetas.</p>
+        </article>
+        <article class="screen-card">
+          <div class="mock-window touch">
+            <div class="touch-button">Ventas</div>
+            <div class="touch-button">Caja</div>
+            <div class="touch-button">Agenda</div>
+            <div class="touch-button">Reportes</div>
+          </div>
+          <h3>Modo t&aacute;ctil</h3>
+          <p>Botones grandes y rutas cortas para operar con manos en pantalla de mostrador.</p>
+        </article>
       </div>
     </section>
 
@@ -195,7 +253,7 @@
       <p class="small-note"><b>Datos fiscales para compra:</b> si el cliente necesita factura de la licencia, se solicitan RFC, raz&oacute;n social, CP fiscal, r&eacute;gimen fiscal, uso CFDI y correo de facturaci&oacute;n.</p>
       <div class="purchase-layout request-layout">
         <article class="purchase-card download-card"><h3>1. Descarga oficial</h3><p>Instalador listo para clientes con descarga directa.</p><a class="button secondary full" href="https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.3.zip" target="_blank" rel="noopener">Descargar instalador</a></article>
-        <article class="purchase-card form-card"><h3>2. Solicitud formal</h3><p>Captura datos del negocio, giro, locales, cajas, contacto, datos fiscales si requiere factura y comprobante de pago cuando corresponda.</p><button class="button primary full" type="button" id="formButton">Abrir formulario de solicitud</button><p class="small-note">Si el formulario no abre, se prepara un mensaje por WhatsApp o correo.</p></article>
+        <article class="purchase-card form-card"><h3>2. Solicitud y prueba</h3><p>Captura datos del negocio, giro, locales, cajas y contacto. Con ese registro se puede enviar una prueba de 1 d&iacute;a al correo del cliente.</p><button class="button primary full" type="button" id="formButton">Abrir formulario de solicitud</button><p class="small-note">Si el formulario no abre, se prepara un mensaje por WhatsApp o correo.</p></article>
         <article class="purchase-card review-card"><h3>3. Serial por correo</h3><p>Cuando el pago queda validado, se emite la licencia con giro, locales, cajas, dispositivos y vigencia.</p><p class="small-note">El serial llega al correo registrado.</p></article>
       </div>
     </section>

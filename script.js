@@ -3,6 +3,7 @@ const CONFIG = {
   email: 'isc.marco.tinajero@gmail.com',
   product: 'Negocio POS Local',
   googleFormUrl: '',
+  leadApiUrl: '',
   downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.3.zip'
 };
 
@@ -42,10 +43,10 @@ function openMessage(message, subjectText = `Solicitud de licencia ${CONFIG.prod
 
 function buildFormFallbackMessage(plan = '') {
   return [
-    `Hola, quiero solicitar información para adquirir ${CONFIG.product}.`,
+    `Hola, quiero solicitar una licencia de prueba de 1 dia para conocer ${CONFIG.product}.`,
     plan ? `Plan de interés: ${plan}` : '',
     `Descarga oficial: ${CONFIG.downloadUrl}`,
-    'Me pueden compartir el formulario de solicitud y los pasos para registrar mi comprobante de pago.'
+    'Me pueden compartir el formulario de solicitud. Quiero probar primero el flujo antes de confirmar la compra.'
   ].filter(Boolean).join('\n');
 }
 
@@ -68,13 +69,13 @@ document.querySelectorAll('.plan-button').forEach((button) => {
   });
 });
 
-['#formButton', '#heroFormButton', '#mobileFormButton'].forEach((selector) => {
+['#formButton', '#heroFormButton', '#mobileFormButton', '#trialButton'].forEach((selector) => {
   document.querySelector(selector)?.addEventListener('click', () => openRequestForm(selectedPlan));
 });
 
 function buildLeadMessage(data) {
   return [
-    `Hola, quiero información para adquirir ${CONFIG.product}.`,
+    `Hola, quiero recibir una prueba de 1 dia de ${CONFIG.product}.`,
     `Negocio: ${data.get('business')}`,
     `Contacto: ${data.get('name')}`,
     `Correo: ${data.get('email')}`,
@@ -96,7 +97,40 @@ function buildLeadMessage(data) {
   ].filter(Boolean).join('\n');
 }
 
-document.querySelector('#leadForm')?.addEventListener('submit', (event) => {
+
+async function sendLeadToPanel(data) {
+  if (!CONFIG.leadApiUrl) return null;
+  const payload = {
+    businessName: data.get('business'),
+    contactName: data.get('name'),
+    email: data.get('email'),
+    phone: data.get('phone'),
+    whatsapp: data.get('phone'),
+    requestedVertical: data.get('vertical'),
+    requestedPlan: data.get('plan'),
+    requestedBranches: data.get('branches'),
+    requestedRegisters: data.get('registers'),
+    requiresInvoice: data.get('requiresInvoice') === 'Si',
+    rfc: data.get('rfc'),
+    fiscalName: data.get('fiscalName'),
+    fiscalZipCode: data.get('fiscalZipCode'),
+    taxRegime: data.get('taxRegime'),
+    cfdiUse: data.get('cfdiUse'),
+    billingEmail: data.get('billingEmail'),
+    message: data.get('message'),
+    sourcePage: location.href,
+    source: 'pagina_venta',
+  };
+  const response = await fetch(CONFIG.leadApiUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error('No se pudo registrar automaticamente.');
+  return response.json();
+}
+
+document.querySelector('#leadForm')?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const form = event.currentTarget;
   const data = new FormData(form);
@@ -104,7 +138,19 @@ document.querySelector('#leadForm')?.addEventListener('submit', (event) => {
   const button = form.querySelector('button[type="submit"]');
 
   if (button) button.disabled = true;
-  const resultText = openMessage(buildLeadMessage(data));
-  if (note) note.textContent = `${resultText} Para compra y comprobante usa el formulario de solicitud.`;
-  if (button) button.disabled = false;
+  try {
+    const registered = await sendLeadToPanel(data);
+    if (registered) {
+      if (note) note.textContent = 'Registro recibido. Revisa el correo registrado para la licencia de prueba de 1 dia o espera seguimiento si requiere revision.';
+      form.reset();
+      return;
+    }
+    const resultText = openMessage(buildLeadMessage(data));
+    if (note) note.textContent = `${resultText} Te trataremos con cuidado y resolveremos tus dudas antes de la compra.`;
+  } catch (error) {
+    const resultText = openMessage(buildLeadMessage(data));
+    if (note) note.textContent = `${resultText} No se completo el registro automatico, pero ya quedo preparado el contacto.`;
+  } finally {
+    if (button) button.disabled = false;
+  }
 });
