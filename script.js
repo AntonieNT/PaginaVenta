@@ -3,7 +3,7 @@ const CONFIG = {
   email: 'isc.marco.tinajero@gmail.com',
   product: 'Negocio POS Local',
   googleFormUrl: '',
-  downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.2.zip'
+  downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.3.zip'
 };
 
 const navToggle = document.querySelector('.nav-toggle');

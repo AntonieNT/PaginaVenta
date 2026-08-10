@@ -31,7 +31,7 @@ Página comercial pública para ofrecer el sistema POS local y canalizar prospec
 La página enlaza al release público de descarga:
 
 ```text
-https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.0.zip
+https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.3.zip
 ```
 
 La descarga no incluye código fuente, secretos, compradores, llaves privadas ni respaldos.

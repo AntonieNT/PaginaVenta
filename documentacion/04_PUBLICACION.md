@@ -13,7 +13,7 @@ https://antonient.github.io/PaginaVenta/
 ## Antes de publicar
 
 1. Revisar correo y WhatsApp en `script.js`.
-2. Confirmar que `CONFIG.downloadUrl` apunte al release oficial vigente.
+2. Confirmar que `CONFIG.downloadUrl` apunte a la descarga oficial vigente.
 3. Confirmar que los datos bancarios sean correctos.
 4. No publicar número de tarjeta de débito.
 5. Revisar textos, imágenes y enlaces.

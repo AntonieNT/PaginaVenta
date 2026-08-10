@@ -9,7 +9,7 @@ Fecha: 2026-08-09
 
 ## 2. Version formal V1
 
-Usar tag `v1.0.0` despues de validar contenido y enlaces.
+Usar tag `v1.0.3` despues de validar contenido y enlaces.
 
 ## 3. Automatizacion
 
