@@ -8,6 +8,7 @@ La página pública debe enviar al comprador a un Google Form o a WhatsApp/corre
 
 - Nombre del negocio.
 - Nombre completo del contacto.
+- Giro del negocio.
 - Correo.
 - Teléfono o WhatsApp.
 - Dirección del negocio.
@@ -20,9 +21,17 @@ La página pública debe enviar al comprador a un Google Form o a WhatsApp/corre
 
 - RFC.
 - Razón social.
-- Domicilio fiscal.
+- Código postal fiscal.
 - Régimen fiscal.
 - Uso de CFDI.
+- Correo de facturación.
+- Constancia de situación fiscal si desea adjuntarla como apoyo opcional; no debe exigirse como requisito.
+
+### Solicitud de factura
+
+- Indicar si requiere factura de la compra.
+- Confirmar que RFC, razón social, código postal fiscal, régimen fiscal y uso CFDI son correctos antes de emitir licencia.
+- El POS guarda solicitudes de factura por venta; el timbrado CFDI requiere integración fiscal adicional con certificados y proveedor autorizado del negocio.
 
 ### Pago y comprobante
 
