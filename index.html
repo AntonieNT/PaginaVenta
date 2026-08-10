@@ -213,8 +213,14 @@
         <article class="price-card featured">
           <p class="plan-name">Anual recomendado</p>
           <h3>Desde $2,499 MXN</h3>
-          <p>1 local, hasta 2 cajas y 3 dispositivos. Mejor valor para formalizar el sistema.</p>
+          <p>1 local, hasta 2 cajas y 3 dispositivos. Mejor valor para formalizar el sistema con actualizaciones y soporte recurrente.</p>
           <button class="button primary plan-button" type="button" data-plan="Anual recomendado">Solicitar anual</button>
+        </article>
+        <article class="price-card">
+          <p class="plan-name">Versión estable actual</p>
+          <h3>Desde $3,999 MXN</h3>
+          <p>Pago único por la versión entregada. Ideal si no deseas mensualidad; las actualizaciones mayores y soporte recurrente se cotizan por separado.</p>
+          <button class="button secondary plan-button" type="button" data-plan="Versión estable actual">Solicitar compra única</button>
         </article>
         <article class="price-card">
           <p class="plan-name">Multi local</p>
@@ -228,7 +234,7 @@
         <span>Sucursal adicional desde $129 MXN/mes</span>
         <span>Dispositivo adicional desde $39 MXN/mes</span>
       </div>
-      <p class="price-note">Estos precios son de lanzamiento. Pueden ajustarse según soporte, instalación, capacitación, volumen y requerimientos especiales.</p>
+      <p class="price-note">Estos precios son de lanzamiento. Pueden ajustarse según soporte, instalación, capacitación, volumen, compra única, cajas adicionales, sucursales y requerimientos especiales.</p>
     </section>
 
     <section class="section" id="capacitacion">
@@ -254,7 +260,7 @@
       <div class="purchase-layout request-layout">
         <article class="purchase-card download-card"><h3>1. Descarga oficial</h3><p>Instalador listo para clientes con descarga directa.</p><a class="button secondary full" href="https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.4.zip" target="_blank" rel="noopener">Descargar instalador</a></article>
         <article class="purchase-card form-card"><h3>2. Solicitud y prueba</h3><p>Captura datos del negocio, giro, locales, cajas y contacto. Con ese registro se puede enviar una prueba de 1 d&iacute;a al correo del cliente.</p><button class="button primary full" type="button" id="formButton">Abrir formulario de solicitud</button><p class="small-note">La solicitud queda lista para seguimiento comercial y prueba de licencia.</p></article>
-        <article class="purchase-card review-card"><h3>3. Serial por correo</h3><p>Cuando el pago queda validado, se emite la licencia con giro, locales, cajas, dispositivos y vigencia.</p><p class="small-note">El serial llega al correo registrado.</p></article>
+        <article class="purchase-card review-card"><h3>3. Serial por correo</h3><p>Cuando el pago queda validado, se emite la licencia con giro, locales, cajas, dispositivos y vigencia.</p><p class="small-note">El serial y el archivo de activación llegan al correo registrado.</p></article>
       </div>
     </section>
 
@@ -270,7 +276,7 @@
         <label>Correo<input name="email" type="email" required placeholder="correo@negocio.com"></label>
         <label>Teléfono o WhatsApp<input name="phone" required placeholder="Número de contacto"></label>
         <label>Giro<select name="vertical" id="verticalSelect"><option value="locksmith">Cerrajería</option><option value="retail">Tienda / supermercado</option><option value="workshop">Taller mecánico</option><option value="restaurant">Restaurante / cafetería</option><option value="other">Otro negocio</option></select></label>
-        <label>Plan de interés<select name="plan" id="planSelect"><option>Inicio mensual</option><option>Anual recomendado</option><option>Multi local</option><option>Quiero recomendación</option></select></label>
+        <label>Plan de interés<select name="plan" id="planSelect"><option>Inicio mensual</option><option>Anual recomendado</option><option>Multi local</option><option>Versión estable actual</option><option>Quiero recomendación</option></select></label>
         <label>Locales<input name="branches" type="number" min="1" value="1"></label>
         <label>Cajas<input name="registers" type="number" min="1" value="1"></label>
         <label>Requiere factura<select name="requiresInvoice"><option>No</option><option value="Si">S&iacute;</option></select></label>
@@ -289,7 +295,7 @@
     <section class="section faq" id="faq">
       <div class="section-heading compact"><p class="eyebrow">Preguntas frecuentes</p><h2>Respuestas rápidas para compradores.</h2></div>
       <details><summary>¿La página cobra directamente?</summary><p>No. La solicitud se revisa primero. El pago se confirma por los medios acordados y después se emite la licencia.</p></details>
-      <details><summary>¿Puede funcionar para más de un local?</summary><p>Sí. La licencia puede incluir uno o varios locales, cajas y dispositivos. Los adicionales se cotizan antes de emitir el serial.</p></details>
+      <details><summary>¿Puede funcionar para más de un local?</summary><p>Sí. La licencia puede incluir uno o varios locales, cajas y dispositivos. Los adicionales se cotizan antes de emitir el serial.</p></details><details><summary>¿Puedo comprar sin mensualidad?</summary><p>Sí. Existe una opción de compra única de la versión estable actual. No incluye actualizaciones mayores ni soporte recurrente, pero permite operar con la versión entregada.</p></details>
       <details><summary>¿Se puede usar en celular o tablet?</summary><p>Sí. La interfaz incluye modo móvil y modo táctil para pantallas de mostrador o tablets.</p></details>
       <details><summary>¿Se ofrece capacitación?</summary><p>Sí. Puede contratarse apoyo remoto o capacitación por rol cuando el negocio lo necesite.</p></details>
       <details><summary>¿El sistema timbra facturas?</summary><p>Sí. La versión 1 incluye configuración fiscal, solicitud por venta, timbrado CFDI y descarga de comprobantes. El negocio debe contar con proveedor autorizado, certificados fiscales y timbres; si requiere apoyo de configuración se cotiza como capacitación o soporte.</p></details>

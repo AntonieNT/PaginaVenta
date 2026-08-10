@@ -25,3 +25,9 @@ La página no debe publicar información bancaria sensible de forma rígida. Lo 
 ## Capacitación
 
 La capacitación es opcional y se cotiza según alcance: arranque guiado, capacitación por rol, carga de catálogo o acompañamiento para varias sucursales.
+
+## Compra única de versión estable
+
+La página ofrece una opción de compra única para la versión estable actual. Debe explicarse con claridad que esta alternativa permite operar con la versión entregada, pero no incluye actualizaciones mayores ni soporte recurrente. Es útil para negocios que prefieren pagar una sola vez y solicitar mejoras o soporte solo cuando lo necesiten.
+
+El formulario público ya incluye esta opción como plan de interés para que el registro quede en Google Sheets o en el panel de licencias.
