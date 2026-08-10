@@ -1,7 +1,7 @@
 const CONFIG = {
   whatsapp: '527298089256',
   email: 'isc.marco.tinajero@gmail.com',
-  product: 'Cerrajería POS',
+  product: 'Negocio POS Local',
   googleFormUrl: '',
   downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.0.zip'
 };
@@ -21,6 +21,14 @@ nav?.querySelectorAll('a').forEach((link) => {
     navToggle?.setAttribute('aria-expanded', 'false');
   });
 });
+
+function verticalLabel(value) {
+  if (value === 'retail') return 'Tienda / supermercado';
+  if (value === 'workshop') return 'Taller mecánico';
+  if (value === 'restaurant') return 'Restaurante / cafetería';
+  if (value === 'other') return 'Otro negocio';
+  return 'Cerrajería';
+}
 
 function openMessage(message, subjectText = `Solicitud de licencia ${CONFIG.product}`) {
   if (CONFIG.whatsapp) {
@@ -71,7 +79,10 @@ function buildLeadMessage(data) {
     `Contacto: ${data.get('name')}`,
     `Correo: ${data.get('email')}`,
     `Teléfono: ${data.get('phone')}`,
+    `Giro: ${verticalLabel(data.get('vertical'))}`,
     `Plan: ${data.get('plan')}`,
+    `Locales: ${data.get('branches')}`,
+    `Cajas: ${data.get('registers')}`,
     `Descarga oficial: ${CONFIG.downloadUrl}`,
     `Mensaje: ${data.get('message') || 'Sin mensaje adicional'}`,
     'Para compra formal llenaré el formulario de solicitud y adjuntaré comprobante cuando corresponda.'

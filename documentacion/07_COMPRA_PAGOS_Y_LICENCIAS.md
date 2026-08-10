@@ -1,52 +1,27 @@
-# Compra, pagos y licencias
+# Compra, Pagos y Licencias
 
-Este documento describe el flujo comercial recomendado para vender Cerrajería POS sin que la página pública cobre directamente.
+La página pública ofrece Negocio POS Local y captura interesados. No realiza cobro directo.
 
-## Flujo recomendado
+## Giros comerciales
 
-1. El cliente entra a la página pública de venta.
-2. Revisa beneficios, módulos y precios orientativos.
-3. Abre el Google Form de solicitud.
-4. Captura sus datos de contacto, negocio y datos fiscales si aplica.
-5. Elige forma de pago preferida.
-6. Cuando ya pagó, adjunta comprobante en el mismo formulario.
-7. El panel interno importa la solicitud.
-8. Se valida el pago en el módulo de pagos.
-9. Se genera la licencia.
-10. El sistema envía el serial por correo.
+- Cerrajería: ventas, inventario, servicios, citas, evidencias, rutas, autorizaciones y caja.
+- Tienda / supermercado: venta rápida, códigos de barras, inventario, proveedores, entradas/salidas y caja.
+- Taller mecánico: citas, clientes, vehículos, servicios, evidencias, refacciones y caja.
+- Restaurante / cafetería: ventas por turno, platillos, bebidas, insumos, caja, reportes y base preparada para pedidos o comandas.
 
-## Datos de pago
+## Política de venta
 
-Los datos de pago no deben ser el foco de la página pública. Es mejor mostrarlos dentro del formulario o compartirlos por seguimiento directo para que el cliente perciba un proceso más serio.
+1. El cliente solicita información o llena el formulario.
+2. Se confirma giro, plan, locales, cajas y dispositivos.
+3. Se comparte el medio de pago acordado.
+4. El cliente adjunta comprobante.
+5. El pago se revisa en el panel interno.
+6. Al autorizarse, el sistema genera licencia y correo formal.
 
-Métodos aceptables:
+## Pagos
 
-- Transferencia interbancaria.
-- Depósito a cuenta BBVA.
-- Depósito o pago asociado a tarjeta BBVA, si se decide manejarlo así.
-- Liga de pago formal cuando exista proveedor configurado.
+La página no debe publicar información bancaria sensible de forma rígida. Lo recomendable es que los datos de pago se entreguen desde el formulario o desde el enlace público generado por el panel de licencias. Así se puede modificar la cuenta o instrucciones sin editar la página.
 
-No solicitar datos sensibles de tarjeta por mensaje.
+## Capacitación
 
-## Precios de lanzamiento sugeridos
-
-Estos precios son orientativos para la primera versión comercial:
-
-| Plan | Precio público sugerido | Alcance base |
-| --- | ---: | --- |
-| Mensual | Desde $399 MXN | 1 local, 1 caja, uso básico |
-| Semestral | Desde $1,999 MXN | 1 local, 1 caja, soporte inicial |
-| Anual | Desde $3,499 MXN | 1 local, 1 caja, mejor valor |
-
-Extras sugeridos:
-
-- Caja adicional: $150 a $250 MXN mensuales, o equivalente anual.
-- Sucursal adicional: 40% a 60% del plan base.
-- Configuración o capacitación inicial: $1,000 a $2,500 MXN según alcance.
-- Soporte prioritario o migración de inventario: cotización aparte.
-
-## Estrategia recomendada
-
-Para los primeros clientes conviene vender como precio de lanzamiento, no como precio definitivo. Esto permite ajustar conforme se mida soporte, instalación y necesidades reales.
-
-Publicar `desde` en la página filtra compradores sin comprometer todas las variantes.
+La capacitación es opcional y se cotiza según alcance: arranque guiado, capacitación por rol, carga de catálogo o acompañamiento para varias sucursales.

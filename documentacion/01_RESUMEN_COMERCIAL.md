@@ -1,20 +1,15 @@
-# Resumen comercial
+# Resumen Comercial
 
-La pagina de venta presenta Cerrajeria POS a nuevos clientes y captura prospectos.
+La página de venta presenta Negocio POS Local a nuevos clientes y captura prospectos.
 
 ## Objetivo
 
-Mostrar beneficios, modulos principales, privacidad local, planes y formulario de contacto.
+Explicar con claridad qué resuelve el producto, para qué giros sirve, cómo se solicita una licencia y cómo se entrega el serial.
 
-## Archivo principal
+## Diferenciadores
 
-```text
-index.html
-```
-
-## Contacto comercial
-
-```text
-ISC. Marco Antonio Nava Tinajero
-isc.marco.tinajero@gmail.com
-```
+- Operación local.
+- Control por licencias, locales, cajas y dispositivos.
+- Base multigiro: cerrajería, tienda, supermercado, taller, restaurante y cafetería.
+- Soporte y capacitación opcional.
+- Descarga pública sin exponer código fuente ni secretos.

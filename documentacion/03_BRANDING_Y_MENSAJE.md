@@ -1,18 +1,27 @@
-# Branding y mensaje
+# Branding y Mensaje
 
-## Marca
+Producto comercial: Negocio POS Local.
 
-Producto: Cerrajeria POS.
+## Posicionamiento
 
-## Tono
+Sistema de punto de venta local para negocios que necesitan vender rápido sin perder control administrativo.
 
-- Profesional.
-- Claro.
-- Sin terminos tecnicos innecesarios.
-- Enfocado en operacion local, control, privacidad y soporte.
+## Giros objetivo
+
+- Cerrajerías.
+- Tiendas y supermercados.
+- Talleres mecánicos.
+- Restaurantes y cafeterías.
+
+## Mensaje clave
+
+- Instalación local con licencia comercial.
+- Datos operativos bajo control del cliente.
+- Ventas, caja, inventario, clientes, proveedores, reportes y autorizaciones.
+- Capacidad de crecer por local, caja y dispositivo.
 
 ## Evitar
 
-- Mencionar tecnologias internas en textos comerciales.
-- Prometer funciones que todavia no esten listas.
-- Publicar enlaces de instalacion sin control de licencia.
+- Prometer cobros automáticos si aún no están integrados.
+- Publicar secretos, llaves privadas o datos bancarios duros dentro del código.
+- Publicar enlaces de instalación sin control de licencia.

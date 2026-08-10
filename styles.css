@@ -237,6 +237,22 @@ h1 {
 .plan-name { margin: 0; color: var(--brand); font-weight: 900; text-transform: uppercase; font-size: 13px; }
 .price-card .button { margin-top: auto; }
 .price-note { margin: 18px 0 0; color: var(--muted); line-height: 1.6; }
+.addon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.addon-list span {
+  padding: 9px 12px;
+  border: 1px solid #cbd5df;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 14px;
+}
+
 
 
 .purchase { padding-top: 40px; }
@@ -328,7 +344,7 @@ h1 {
   outline: 3px solid rgba(9,105,168,.16);
   border-color: var(--brand);
 }
-.lead-form label:nth-child(6), .lead-form .full, .form-note { grid-column: 1 / -1; }
+.lead-form label:nth-child(9), .lead-form .full, .form-note { grid-column: 1 / -1; }
 .form-note { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
 
 .faq { padding-top: 20px; }
@@ -469,7 +485,8 @@ details p { margin: 12px 0 0; color: var(--muted); line-height: 1.6; }
     backdrop-filter: blur(12px);
   }
 
-  .mobile-action .button,`r`n  .mobile-action button {
+  .mobile-action .button,
+  .mobile-action button {
     width: 100%;
   }
 }
