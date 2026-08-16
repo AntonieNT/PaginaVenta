@@ -6,7 +6,7 @@ const DEFAULT_CONFIG = {
   googleAppsScriptUrl: '',
   leadApiUrl: '',
   whatsappFallback: false,
-  emailFallback: false,
+  emailFallback: true,
   downloadUrl: 'https://github.com/AntonieNT/CerrajeriaPOS-Descargas/releases/latest/download/CerrajeriaPOS-Cliente-v1.0.4.zip'
 };
 
@@ -80,7 +80,7 @@ function openRequestForm(plan = '') {
     setFormNote('Completa tus datos aquí o abre el formulario oficial para que tu solicitud quede registrada.');
     return;
   }
-  setFormNote('El registro en nube aún no está configurado. En cuanto esté activo, esta solicitud quedará guardada para seguimiento formal.');
+  setFormNote('Completa tus datos. Si la nube a\u00fan no est\u00e1 configurada, se abrir\u00e1 un correo formal con toda la solicitud para no perder el seguimiento.');
 }
 
 document.querySelectorAll('.plan-button').forEach((button) => {
@@ -210,7 +210,7 @@ document.querySelector('#leadForm')?.addEventListener('submit', async (event) =>
       return;
     }
 
-    if (note) note.textContent = 'El registro automático aún no está configurado. Intenta más tarde o contacta al equipo de soporte.';
+    if (note) note.textContent = 'No hay destino de nube configurado. Usa el correo formal que se abrir\u00e1 como respaldo para que podamos registrar tu solicitud.';
   } catch (error) {
     if (CONFIG.googleFormUrl) {
       window.open(CONFIG.googleFormUrl, '_blank', 'noopener');
@@ -222,7 +222,7 @@ document.querySelector('#leadForm')?.addEventListener('submit', async (event) =>
       if (note) note.textContent = `${resultText} No se completó el registro automático, pero no queremos perder tu solicitud.`;
       return;
     }
-    if (note) note.textContent = 'No se completó el registro automático. Intenta nuevamente en unos minutos.';
+    if (note) note.textContent = 'No se complet\u00f3 el registro autom\u00e1tico. Se intentar\u00e1 abrir un correo formal para no perder tu solicitud.';
   } finally {
     if (button) button.disabled = false;
   }
